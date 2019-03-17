@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    block heads
+        link(href="css/bulma.css", rel="stylesheet")
+        link(href="css/main.css", rel="stylesheet")
+        link(href="css/fontawesome/css/all.css", rel="stylesheet")
+  body
+    include ./includes/header.pug
+    block content
+    include ./includes/footer.pug
+    block scripts
+        script(src='scripts/main.js')
+    
