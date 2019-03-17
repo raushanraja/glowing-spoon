@@ -2,13 +2,19 @@ doctype html
 html
   head
     block heads
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(href="css/bulma.css", rel="stylesheet")
         link(href="css/main.css", rel="stylesheet")
         link(href="css/fontawesome/css/all.css", rel="stylesheet")
   body
-    include ./includes/header.pug
-    block content
-    include ./includes/footer.pug
-    block scripts
-        script(src='scripts/main.js')
+    .section.is-paddingless
+      include ./includes/header.pug
+    .section.is-paddingless    
+      block content
+    .section.is-paddingless    
+      include ./includes/footer.pug
+      block scripts
+          script(src='scripts/main.js')
     
