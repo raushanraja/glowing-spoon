@@ -12,7 +12,7 @@ gulp.task('pug', function() {
             doctype: 'html',
             pretty: true
         }))
-        .pipe(gulp.dest('./dist/'))
+        .pipe(gulp.dest('./docs/'))
         .pipe(browserSync.stream());
 });
 
@@ -22,27 +22,27 @@ gulp.task('pug', function() {
 gulp.task('sass', function () {
     return gulp.src('./assets/styles/*.scss')
         .pipe(sass()).on('error', sass.logError)
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./docs/css'))
 	.pipe(browserSync.stream());
 });
 
 
 gulp.task('css', function () {
     return gulp.src('./assets/styles/*.css')
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./docs/css'))
 	.pipe(browserSync.stream());
 });
 
 
 gulp.task('images', function () {
     return gulp.src('./assets/images/*')
-        .pipe(gulp.dest('./dist/images'))
+        .pipe(gulp.dest('./docs/images'))
 	.pipe(browserSync.stream());
 });
 
 gulp.task('js', function () {
     return gulp.src('./assets/scripts/*')
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest('./docs/js'))
 	.pipe(browserSync.stream());
 });
 
@@ -51,12 +51,12 @@ gulp.task('js', function () {
 //  */
 gulp.task('default',  function () {
  browserSync.init({
-        server: "./dist"
+        server: "./docs"
     });
     gulp.watch('./assets/styles/**/*.scss',gulp.series('sass'));
     gulp.watch('./assets/styles/**/*.css',gulp.series('css'));
     gulp.watch('./assets/views/**/*.pug',  gulp.series('pug'));
     gulp.watch('./assets/images/**/*.*',  gulp.series('images'));
     gulp.watch('./assets/scripts/**/*.js',  gulp.series('js'));
-    // gulp.watch('./dist/*html').on('change',browserSync.reload)
+    // gulp.watch('./docs/*html').on('change',browserSync.reload)
 });
